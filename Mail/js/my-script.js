@@ -59,7 +59,7 @@ form.addEventListener("submit", function(event){
             
                    yess.classList.remove("d-none");
                    emailInput.value = "";
-
+                   i=array.lenght
                 }
             
                 else{
