@@ -18,42 +18,117 @@ form.addEventListener("submit", function(event){
 
     const cpuinput = document.getElementById("cpu");
 
-    const result = document.getElementById("result");
+    const finalResult = document.getElementById("result");
 
-    result.innerHTML = "";
+    const playerResult = document.getElementById("player-results");
 
-    let i;
+    const cpuResult = document.getElementById("cpu-results");
 
-    for( i=0; i < 1; i++){
-        
+
+
+    const iterationNumber = document.getElementById("iteration-number").value;
+
+
+
+    finalResult.innerHTML = "";
+
+    
+    let cpuWins = 0;
+
+    let playerWins = 0;
+
+    let tie = 0;
+
+    playerResult.innerHTML = "";
+
+    cpuResult.innerHTML = "";
+
+
+  
+
+    for(let i=0; i < iterationNumber; i++){
         
         let player = Math.floor( Math.random()*6 ) + 1;
-        console.log(player)
-        
+
         let cpu =  Math.floor( Math.random()*6 ) + 1;
-           console.log(cpu)
- 
+   
+        if(iterationNumber > 0 && iterationNumber <=1){
 
             if(player > cpu){
 
-                result.append("Player Wins")
-
+                finalResult.append("Player Wins")
+    
             }
-
+    
             else if(player < cpu){
-
-                result.append("CPU Wins")
-
+    
+                finalResult.append("CPU Wins")
+    
             }
-
+    
             else{
-
-                result.append("IT'S A TIE")
-
+    
+                finalResult.append("IT'S A TIE")
+    
             }
-
+    
             playerInput.value = player;
             cpuinput.value = cpu;
+        }
+
+        else if( iterationNumber > 0 ){
+
+            const newDivPR = document.createElement("div");
+            newDivPR.append(player);
+            playerResult.append(newDivPR);
+
+            const newDivCR = document.createElement("div");
+            newDivCR.append(cpu);
+            cpuResult.append(newDivCR);
+
+
+
+            
+            if(player > cpu){
+
+              playerWins++;
+    
+            }
+    
+            else if(player < cpu){
+    
+                cpuWins++;
+
+            }
+    
+            else{
+    
+              tie++;
+    
+            }
+
+            document.getElementById("player-wins").innerHTML = playerWins;
+            document.getElementById("cpu-wins").innerHTML = cpuWins;
+            document.getElementById("tie").innerHTML = tie;
+
+
+
+            if(playerWins > cpuWins && i==iterationNumber-1){
+
+                finalResult.append("Player Wins")
+
+            }
+
+            else if( cpuWins > playerWins && i==iterationNumber-1){
+
+                finalResult.append("CPU Wins")
+
+            }
+
+            else if( cpuWins == playerWins && i==iterationNumber-1){
+                finalResult.append("IT'S A TIE")
+            }
+        }
             
     }
 }
