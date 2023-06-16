@@ -40,7 +40,7 @@ form.addEventListener("submit", function(event){
                 
                 console.log("si ci entra");
 
-                yess.className += "d-none";
+                yess.classList.add ("d-none");
            
             }
 
@@ -48,7 +48,7 @@ form.addEventListener("submit", function(event){
                 
                 console.log("si ci entra");
 
-                nooo.className += "d-none";
+                nooo.classList.add ("d-none");
             }
 
 
