@@ -38,17 +38,17 @@ form.addEventListener("submit", function(event){
 
             if(yess.classList.contains("d-none") === false){
                 
-                console.log("si ci entra");
+                console.log( "yess si ci entra");
 
-                yess.classList.add ("d-none");
+                yess.className = "d-none";
            
             }
 
             if(nooo.classList.contains("d-none") === false){
                 
-                console.log("si ci entra");
+                console.log("noo si ci entra");
 
-                nooo.classList.add ("d-none");
+                nooo.className = "d-none";
             }
 
 
@@ -58,14 +58,22 @@ form.addEventListener("submit", function(event){
                 if(emailInput.value === array[i]){
             
                    yess.classList.remove("d-none");
+
                    emailInput.value = "";
+                   
+                   console.log(array[i])
+
+                   nooo.className = "d-none";
+
                    i=array.lenght
                 }
             
                 else{
             
                    nooo.classList.remove("d-none");
-            
+                    
+                   console.log(array[i])
+
             
                 }
 
